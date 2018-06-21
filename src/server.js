@@ -28,7 +28,7 @@ app.post('/authenticate', function (req, res) {
         var token = jwt.sign({
             email: req.body.email
         },  
-            'marlabs-secret-key',
+            'firebase-secret-key',
             { expiresIn: '1h' }
         );
         res.send({
@@ -52,7 +52,7 @@ app.post('/deleteProduct', function(req, res) {
 app.use(function (req, res, next) {
     var token = req.body.token || req.query.token || req.headers.token;
     if (token) {
-        jwt.verify(token, 'marlabs-secret-key', function (err, decoded) {
+        jwt.verify(token, 'firebase-secret-key', function (err, decoded) {
             if (!err) {
                 req.decoded = decoded;
                 next();
