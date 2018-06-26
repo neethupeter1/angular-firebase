@@ -13,17 +13,7 @@ export class AddComponent implements OnInit {
   constructor(private _fb: FormBuilder) { }
 
   ngOnInit() {
-    // this.userForm = this._fb.group({
-    //   firstname:'User firstname',
-    //   lastname:'User lastname',
-    //   email:'arun@gmail.com'
-    // });
-
-    // this.userForm = this._fb.group({
-    //   firstname:{value: 'Firstname', disables:true},
-    //   lastname:'User lastname',
-    //   email:'arun@gmail.com'
-    // });
+    
     this.userForm = this._fb.group({
       firstname:['', [Validators.required, Validators.minLength(5)]],
       lastname:['', [Validators.required, Validators.minLength(5)]],
